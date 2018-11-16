@@ -12,7 +12,7 @@
     use Symfony\Component\Routing\Annotation\Route;
 
 
-    class DefaultController extends Controller
+    class ExoResponseController extends Controller
     {
         /**
          * @Route("/", name="homepage")
