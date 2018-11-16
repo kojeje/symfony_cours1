@@ -208,8 +208,26 @@ class ExoRequestController extends Controller
 //            $url = $this->generateUrl('blog_placeholder');
 //            var_dump($url);die;
 //            return $this -> redirect($url);
-        return $this->redirectToRoute('pokerhtm');
+
+        $condition = 2;
+//        $condition >= 7 ? return $this -> redirect($url) : 'mauvaise valeur';
+
+        if ($condition > 7) {
+            $this->redirect($url);
+        } else {
+            echo 'Mauvaise valeur';
+        }
+
+
+
+
+//        return $this->redirectToRoute('pokerhtm');
+
+
     }
+
+
+
 
 }
 
