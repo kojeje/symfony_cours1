@@ -22,16 +22,63 @@
     use Symfony\Component\Routing\Annotation\Route;
 
     class ExoTwigController extends Controller
+//    !! la class doit avoir le meme nom que le fichier Controller !!
     {
+//        ROUTE : (annotation) lie l'url et la méthode du controller
+//       ******
         /**
          * @Route("/vartwig", name="twig_var")
          */
+
+//        METHODE
+//       ********
+//    permet de DE RETOURNER UN FICHIER TWIG (VUE?)
+
        public function variablesTwigAction()
         {
-//            var_dump("Bla");die;
+//        var_dump("Bla");die;
+
           return $this->render(
             "@App/ExoTwig/var.html.twig",
-            ["test"=>"jerome"]
+              [
+//           variable => "valeur OU string"
+
+                "test"=>"jerome",
+                "test2"=>"Ca marche!"
+           ]
           );
         }
-    }
+
+//        Condition
+        /**
+         * @Route("/booltwig", name="twig_bool")
+         */
+        public function boolTwigAction()
+        {
+//            var_dump("Bla2");die;
+            return $this->render(
+                "@App/ExoTwig/bool.html.twig",
+                [
+//                  variable => "valeur OU string"
+                    'displaySidebar'=> true
+                ]
+            );
+        }
+
+//        Boucle
+        /**
+         * @Route("/looptwig", name="twig_loop")
+         */
+
+        public function loopTwigAction()
+        {
+            return $this->render(
+                "@App/ExoTwig/loop.html.twig",
+                [
+                    'posts' => ['1', '2', '3']
+                ]
+            );
+        }
+
+    
+    }   
