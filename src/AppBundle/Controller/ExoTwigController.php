@@ -20,6 +20,7 @@
     //autoloader
     use Symfony\Bundle\FrameworkBundle\Controller\Controller;
     use Symfony\Component\Routing\Annotation\Route;
+    use Symfony\Component\HttpFoundation\Request;
 
     class ExoTwigController extends Controller
 //    !! la class doit avoir le meme nom que le fichier Controller !!
@@ -75,8 +76,76 @@
             return $this->render(
                 "@App/ExoTwig/loop.html.twig",
                 [
-                    'posts' => ['1', '2', '3']
+                    'posts' =>
+                        [
+                           [   'id'=>1,
+                               'titre' => 'Bla1',
+                               'contenu' =>'Lorem1 ipsum dolor sit amet, consectetur adipisicing elit. A animi consequatur cum eos est exercitationem expedita hic, libero obcaecati officia possimus quas quis, saepe, tenetur vel? Fugit molestias quis suscipit.',
+                               'resume' => 'Lorem1 ipsum dolor sit amet,'
+                           ],
+                           [   'id'=>2,
+                               'titre' => 'Bla1',
+                               'contenu' =>'Lorem2 ipsum dolor sit amet, consectetur adipisicing elit. A animi consequatur cum eos est exercitationem expedita hic, libero obcaecati officia possimus quas quis, saepe, tenetur vel? Fugit molestias quis suscipit.',
+                               'resume' => 'Lorem2 ipsum dolor sit amet,'
+                           ],
+                           [   'id'=>3,
+                               'titre' => 'Bla1',
+                               'contenu' =>'Lorem3 ipsum dolor sit amet, consectetur adipisicing elit. A animi consequatur cum eos est exercitationem expedita hic, libero obcaecati officia possimus quas quis, saepe, tenetur vel? Fugit molestias quis suscipit.',
+                               'resume' => 'Lorem3 ipsum dolor sit amet,'
+                           ]
+                        ]
+
                 ]
+            );
+        }
+
+//    Boucle
+        /**
+         * @Route("/id_twig", name="twig_id")
+         */
+
+        public function idTwigAction(Request $request)
+
+        {
+            $id = $request->query->get('id');
+            $posts = [
+                [
+                    'id'=>1,
+                    'titre' => 'Bla1',
+                    'content' =>'Lorem1 ipsum dolor sit amet, consectetur adipisicing elit.
+                         A animi consequatur cum eos est exercitationem expedita hic,
+                          libero obcaecati officia possimus quas quis, saepe, tenetur vel?
+                           Fugit molestias quis suscipit.',
+                    'resume' => 'Lorem1 ipsum dolor sit amet,'
+                ],
+                [
+                    'id'=>2,
+                    'titre' => 'Bla2',
+                    'content' =>'Lorem2 ipsum dolor sit amet, consectetur adipisicing elit.
+                         A animi consequatur cum eos est exercitationem expedita hic,
+                          libero obcaecati officia possimus quas quis, saepe, tenetur vel?
+                           Fugit molestias quis suscipit.',
+                    'resume' => 'Lorem2 ipsum dolor sit amet,'
+                ],
+                [
+                    'id'=>3,
+                    'titre' => 'Bla3',
+                    'content' =>'Lorem3 ipsum dolor sit amet, consectetur adipisicing elit.
+                         A animi consequatur cum eos est exercitationem expedita hic,
+                          libero obcaecati officia possimus quas quis, saepe, tenetur vel?
+                           Fugit molestias quis suscipit.',
+                    'resume' => 'Lorem3 ipsum dolor sit amet,'
+                ]
+            ];
+
+
+            return $this->render(
+                "@App/ExoTwig/id_Twig.html.twig",
+                [
+                    'post' => $posts[$id]
+                ]
+
+//
             );
         }
 

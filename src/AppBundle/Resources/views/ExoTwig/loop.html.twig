@@ -11,7 +11,9 @@
 <main>
     <div>
         {% for post in posts  %}
-            <h2>{{ post }}</h2>
+            <h2>{{ post.titre }}</h2>
+            <p>{{ post.contenu }}</p>
+            <p>{{ post.resume }}</p>
         {% endfor %}
 
     </div>
