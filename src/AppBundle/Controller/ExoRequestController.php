@@ -197,37 +197,16 @@ class ExoRequestController extends Controller
         return new Response($article[$id]["title"] . ' ' . '<br>' . $article[$id]["content"]);
     }
 
+
     /**
-     * @Route("/redirect", name= "redirect")
+     * @Route("/redirect1/{id}", name="redirect1")
      */
-    public function redirectAction()
+    public function redirectAction1($id)
     {
-//            return $this->redirect('http://symfony.com/doc');
-
-//            ou
-//            $url = $this->generateUrl('blog_placeholder');
-//            var_dump($url);die;
-//            return $this -> redirect($url);
-
-        $condition = 2;
-//        $condition >= 7 ? return $this -> redirect($url) : 'mauvaise valeur';
-
-        if ($condition > 7) {
-            $this->redirect($url);
+        if ($id == "true") {
+            return $this->redirectToRoute('Poker');
         } else {
-            echo 'Mauvaise valeur';
+            return new Response('Try again');
         }
-
-
-
-
-//        return $this->redirectToRoute('pokerhtm');
-
-
     }
-
-
-
-
 }
-

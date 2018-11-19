@@ -57,6 +57,8 @@
         /**
          * @Route("/response", name="response")
          */
+
+//        Class response: reponse à contenu court (très peu utilisé)
         public function responseAction()
         {
             return new Response("
@@ -71,7 +73,7 @@
          * @Route("/html", name="html")
          */
         public function htmlAction()
-        {   //render : prendre un file htm ou twig et le renvoyer en réponse http
+        {   //render : détermine un contenu (fichier ou url) htm ou twig  et le renvoie en réponse http
             return $this->render("@App/Default/demohtml.html.twig");
         }
 
